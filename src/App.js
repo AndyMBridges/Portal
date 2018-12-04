@@ -2,15 +2,14 @@
 import React, {Component} from 'react';
 import {Switch, Router, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
+import Loadable from 'react-loadable';
 import {history} from './helpers/history';
 import {PrivateRoute} from './helpers/privateRoute';
 import {logout} from './actions/login';
 import LoginSelectors from './selectors/login';
 
-import Apps from './containers/Apps';
-import Login from './containers/Login';
-import Users from './containers/Users';
 import Header from './components/Header';
+import {Loading} from './components/Loading';
 
 import {GlobalStyle} from './theme/GlobalStyle';
 
@@ -23,6 +22,21 @@ type TestProps = {
         error?: string
     }
 }
+
+const Apps = Loadable({
+    loader: () => import(/* webpackChunkName: "AppsChunk" */ './containers/Apps'),
+    loading: Loading
+});
+
+const Login = Loadable({
+    loader: () => import(/* webpackChunkName: "LoginChunk" */ './containers/Login'),
+    loading: Loading
+});
+
+const Users = Loadable({
+    loader: () => import(/* webpackChunkName: "UsersChunk" */ './containers/Users'),
+    loading: Loading
+});
 
 class App extends Component<TestProps> {
 

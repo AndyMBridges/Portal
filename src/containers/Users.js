@@ -11,7 +11,7 @@ import {Image, Title, ContentWrap, ContentItem} from '../theme/GlobalStyle';
 
 const Email = styled.a`
     margin: 1rem auto;
-    color: #00a0d6;
+    color: #005E85;
 `;
 
 type Content = {
@@ -81,14 +81,13 @@ class AppUsers extends Component<TestProps, TestState> {
         return (
             <div>
                 <Title>Users</Title>
-                {getUsers && getUsers.items ? (
+                {getUsers && getUsers.items ?
                     <div>
                         <ContentWrap>{getUsers.items.map(user => this.renderUser(user))}</ContentWrap>
                         <Button onClick={this.getUsers}>
                             {this.state.moreUsers ? 'Previous users' : 'Next users'}
                         </Button>
-                    </div>
-                ) : <Loading />}
+                    </div> : <Loading />}
             </div>
         );
 

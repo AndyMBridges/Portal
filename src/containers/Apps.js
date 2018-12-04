@@ -7,7 +7,7 @@ import LoginSelectors from '../selectors/login';
 import {loadApp} from '../actions/apps';
 import {updateApp} from '../actions/updateApp';
 import {Loading} from '../components/Loading';
-import {Button, ButtonSecondary, Input, Form, Text} from '../theme/Form';
+import {Button, ButtonSecondary, Input, Form, Text, Label} from '../theme/Form';
 import {Image, Title, ContentWrap, ContentItem} from '../theme/GlobalStyle';
 
 type Content = {
@@ -44,7 +44,6 @@ class App extends Component<TestProps> {
         return (
             <ContentItem key={id}>
                 {logo && <Image src={logo} alt={name} />}
-                {name && <h2>{name}</h2>}
                 <Formik
                     initialValues={{name: ''}}
                     validate={values => {
@@ -67,15 +66,17 @@ class App extends Component<TestProps> {
                         handleSubmit
                     }) => (
                         <Form onSubmit={handleSubmit}>
-                            <Input
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.name}
-                                border={errors.name && '1px solid red'}
-                                type="text"
-                                name="name"
-                                placeholder="Update app name"
-                            />
+                            <Label><h2>{name}</h2>
+                                <Input
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.name}
+                                    border={errors.name && '1px solid red'}
+                                    type="text"
+                                    name="name"
+                                    placeholder="Update app name"
+                                />
+                            </Label>
                             {errors.name && <Text color="red">{errors.name}</Text>}
                             <Button type="submit">Update app name</Button>
                         </Form>

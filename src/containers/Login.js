@@ -5,17 +5,7 @@ import styled from 'styled-components';
 import {Formik} from 'formik';
 import {login, logout} from '../actions/login';
 import LoginSelectors from '../selectors/login';
-import {Button, ButtonSecondary, Input, Form, Text} from '../theme/Form';
-
-const Label = styled.label`
-    display: flex;
-    flex-direction: column;
-    color: #14233c;
-    font-size: 0.8em;
-    margin: 0.5em 0;
-    position: relative;
-    width: 100%;
-`;
+import {Button, ButtonSecondary, Input, Form, Text, Label} from '../theme/Form';
 
 const LoginPage = styled.div`
     background: #FFF;

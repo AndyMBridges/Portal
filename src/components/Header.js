@@ -9,7 +9,7 @@ const Logout = styled.button`
     text-transform: uppercase;
     color: #FFF;
     border-radius: 3px;
-    background-color: #00a0d6;
+    background-color: #005E85;
     border: 0;
     cursor: pointer;
     transition: .2s linear;

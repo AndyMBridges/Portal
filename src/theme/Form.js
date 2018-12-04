@@ -11,8 +11,8 @@ export const Button = styled.button`
     border: 0;
     font-size: .8rem;
     text-transform: uppercase;
+    max-width: 700px;
     cursor: pointer;
-    max-width: 600px;
     transition: .2s linear;
     &:hover {
       background-color: #008dbd;
@@ -38,6 +38,16 @@ export const ButtonSecondary = styled(Link)`
     &:hover {
         background-color: #3d4658;
     }
+`;
+
+export const Label = styled.label`
+    display: flex;
+    flex-direction: column;
+    color: #14233c;
+    font-size: 0.8em;
+    margin: 0.5em 0;
+    position: relative;
+    width: 100%;
 `;
 
 export const Input = styled.input`
